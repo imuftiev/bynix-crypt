@@ -8,3 +8,6 @@ class UserCreate(BaseModel):
     user_id: UUID = Field(default_factory=uuid.uuid4)
     username: str
     password: str
+
+class UserResponse(BaseModel):
+    username: str

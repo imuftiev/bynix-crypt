@@ -1,8 +1,8 @@
 import uuid
 
-from sqlalchemy import ForeignKey, Column
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from src.domain.config.base import Base
+from sqlalchemy import ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column
+from src.core.base import Base
 
 
 class Message(Base):

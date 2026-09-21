@@ -6,10 +6,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from src.domain.config.base import Base
-from src.domain.models.user import User
-from src.domain.models.message import Message
-
+from src.core.base import Base
 
 config = context.config
 

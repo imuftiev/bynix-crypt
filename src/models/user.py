@@ -2,7 +2,7 @@ import uuid
 
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from src.domain.config.base import Base
+from src.core.base import Base
 
 
 class User(Base):

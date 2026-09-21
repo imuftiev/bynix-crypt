@@ -1,17 +1,18 @@
 from http import HTTPStatus
-from typing import Annotated, Any
+from typing import Annotated
 
 from fastapi import APIRouter
 from fastapi.params import Depends
 from psycopg import Connection
 
-from src.domain.config.db import get_connection
-from src.domain.schemas.user_create import UserCreate
+from src.core.db import get_connection
+from src.schemas.user import UserCreate
+
 
 router = APIRouter(prefix="/user")
 
 
-@router.post("/", status_code=HTTPStatus.CREATED)
+@router.post("/", status_code=HTTPStatus.CREATED, tags=["User create operation"])
 async def create_user(user: UserCreate,
                       conn: Annotated[Connection,
                       Depends(get_connection)]
@@ -34,4 +35,4 @@ async def get_user(conn: Annotated[Connection,
     cursor.execute("SELECT * FROM users")
     rows = cursor.fetchall()
     conn.commit()
-    return rows 
+    return rows
