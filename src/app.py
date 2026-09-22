@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from src.domain.handlers.user import router
+from src.api.routers.users import router
+from src.core.base import Base
 
 app = FastAPI()
 

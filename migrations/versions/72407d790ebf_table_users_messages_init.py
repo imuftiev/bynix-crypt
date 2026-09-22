@@ -1,8 +1,8 @@
-"""user entity update
+"""Table users, messages init.
 
-Revision ID: a159e7a0579d
+Revision ID: 72407d790ebf
 Revises: 
-Create Date: 2026-09-19 12:35:06.625420
+Create Date: 2026-09-22 11:39:09.607389
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'a159e7a0579d'
+revision: str = '72407d790ebf'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -30,7 +30,9 @@ def upgrade() -> None:
     sa.Column('user_id', sa.Uuid(), nullable=False),
     sa.Column('username', sa.String(), nullable=False),
     sa.Column('password', sa.String(), nullable=False),
+    sa.Column('email', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('user_id'),
+    sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
     # ### end Alembic commands ###
